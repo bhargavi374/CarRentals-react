@@ -1,5 +1,4 @@
 import React from 'react';
-import { Routes,Route } from 'react-router';
 import Home from "../pages/Home";
 import About from '../pages/About';
 import Model from '../pages/Model';
@@ -12,6 +11,7 @@ import Account from '../pages/Account';
 import axios from 'axios';
 import { UserContextProvider } from '../Context/Clientcontext';
 import Booking from '../pages/bookinghistory';
+import { Routes, Route} from 'react-router-dom';
 
 
 

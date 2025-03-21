@@ -13,13 +13,13 @@ export default function Footer(){
                             <h1 className="font-sans font-bold text-3xl">CAR <span className='text-xl font-semibold font-sans'>RENTAL</span></h1>
                             <p className="font-sans text-base text-[#706f7b] my-2">We offers a big range of vehicles for all your driving needs. 
                             We have the perfect car to meet your needs.</p>
-                            <h2 style={{cursor:"pointer"}} className="font-sans font-bold text-lg my-1 hover:text-orange"><PhoneIcon/> (123) -456-789</h2>
+                            <h2 style={{cursor:"pointer"}} className="font-sans font-bold text-lg my-1 hover:text-orange"><PhoneIcon/>(+91)phone-number</h2>
                             <h2 style={{cursor:"pointer"}} className="font-sans font-bold text-lg my-1 hover:text-orange"><EmailIcon/> carrentals@gmail.com</h2>
-                            <h2 style={{cursor:"pointer"}} className="font-sans text-lg my-1 hover:text-orange">Design by XpeedStudio</h2>
+                            {/* <h2 style={{cursor:"pointer"}} className="font-sans text-lg my-1 hover:text-orange"></h2> */}
                         </div>
                         <div className="">
                             <h2 className="font-sans font-bold text-2xl">COMPANY</h2>
-                            <p style={{cursor:"pointer"}} className="font-sans text-lg mt-1 hover:text-orange">Kerala</p>
+                            <p style={{cursor:"pointer"}} className="font-sans text-lg mt-1 hover:text-orange">Hyderabad</p>
                             <p style={{cursor:"pointer"}} className="font-sans text-lg mt-1 hover:text-orange">Careers</p>
                             <p style={{cursor:"pointer"}} className="font-sans text-lg mt-1 hover:text-orange">Mobile</p>
                             <p style={{cursor:"pointer"}} className="font-sans text-lg mt-1 hover:text-orange">Blog</p>
