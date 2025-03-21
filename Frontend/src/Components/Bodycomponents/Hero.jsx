@@ -24,7 +24,7 @@ export default function Hero({handleBookRideClick}){
                     </div> 
                     </div>
                     <div className='hidden md:flex flex-col mb-32 space-y-12  md:w-1/2 '>
-                        <img className="" src={car} alt=""/>
+                        <img className="red-car" src={car} alt=""/>
                     </div>
                 </div>
             </section>

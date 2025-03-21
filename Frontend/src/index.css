@@ -44,6 +44,12 @@
 .open .hamburger-bottom{
     transform: rotate(-45deg) translateY(6px) translate(-6px);
 }
+.red-car{
+    background-image: url("./Components/images/background.png");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center center;
+}
 
 #formbg{
     background-image: url("./Components/images/formback.png");
