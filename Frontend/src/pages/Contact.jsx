@@ -67,9 +67,9 @@ export default function Contact(){
                         <h2 className="font-sans font-bold text-5xl py-2">Need additional information?</h2>
                         <h3 className="font-sans font-semibold text-base text-[#777] py-2">A multifaceted professional skilled in multiple fields of research, 
                         development as well as a learning specialist. Over 15 years of experience.</h3>
-                        <h4 style={{cursor:"pointer"}} className="text-lg font-sans font-bold py-2 hover:text-orange"><PhoneIcon/> (123)- 456 789</h4>
+                        <h4 style={{cursor:"pointer"}} className="text-lg font-sans font-bold py-2 hover:text-orange"><PhoneIcon/>(+91)phone-number</h4>
                         <h4 style={{cursor:"pointer"}} className="text-lg font-sans font-bold  hover:text-orange"><EmailIcon/> carrentals@gmail.com</h4>
-                        <h4 style={{cursor:"pointer"}} className="text-lg font-sans font-bold py-2 hover:text-orange"><LocationOnIcon/> Kerala, India</h4>
+                        <h4 style={{cursor:"pointer"}} className="text-lg font-sans font-bold py-2 hover:text-orange"><LocationOnIcon/> hyderabad, India</h4>
                     </div>
                     <div className="flex flex-col justify-center">                   
                             <label className="text-lg font-bold pt-3 font-sans">Full Name</label>
