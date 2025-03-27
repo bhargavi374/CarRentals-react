@@ -6,14 +6,14 @@ const cookieParser = require('cookie-parser');
 const authenticateJWT = (req,res,next) => {
     const {token} = req.cookies;
     if(token){
-        jwt.verify(token, jwtSecret, {},async(err,ClientData)=>{
+        jwt.verify(token, jwtSecret, {},async (err,clientData)=>{
             if(err) throw err;
-            req.user = ClientData;
+            req.user = clientData;
             next();
         })
     }else{
-        res.json(null)
+        res.json(null);
     }
 }
 
-module.exports = authenticateJWT
+module.exports = authenticateJWT;
