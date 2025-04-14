@@ -10,55 +10,56 @@
     position: relative;
 }
 
-.hamburger-top,.hamburger-middle,.hamburger-bottom{
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
     position: absolute;
-    top: 0;
     left: 0;
     width: 24px;
     height: 2px;
     background: #000;
-    transform: rotate(0);
     transition: all 0.5s;
 }
 
-.hamburger-middle{
-    transform: translateY(7px);
-}
-.hamburger-bottom{
-    transform: translateY(14px);
+.hamburger-top {
+    top: 0;
 }
 
-.open{
-    transform: rotate(90deg);
-    transform:  translateY(0px);
+.hamburger-middle {
+    top: 7px;
 }
 
-.open .hamburger-top{
-    transform: rotate(45deg) translateY(6px) translate(6px);
+.hamburger-bottom {
+    top: 14px;
 }
 
-.open .hamburger-middle{
+.hamburger.open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.hamburger.open .hamburger-middle {
     display: none;
 }
 
-.open .hamburger-bottom{
-    transform: rotate(-45deg) translateY(6px) translate(-6px);
+.hamburger.open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translateX(-6px);
 }
-.red-car{
+
+.red-car {
     background-image: url("./Components/images/background.png");
-    background-size: cover; 
-    background-repeat: no-repeat; 
+    background-size: cover;
+    background-repeat: no-repeat;
     background-position: center center;
 }
 
-#formbg{
+#formbg {
     background-image: url("./Components/images/formback.png");
-    background-size: cover; 
-    background-repeat: no-repeat; 
+    background-size: cover;
+    background-repeat: no-repeat;
     background-position: center center;
 }
 
-#carmodels{
+#carmodels {
     transition: all .2s;
 }
 
@@ -68,16 +69,15 @@ td:not(:last-child) {
 
 #myTextarea {
     resize: none;
-  }
-
+}
 
 
 
 @layer components {
     .card {
-      background-color: theme('colors.white');
-      border-radius: theme('borderRadius.lg');
-      padding: theme('spacing.6');
-      box-shadow: theme('boxShadow.xl');
+        background-color: theme('colors.white');
+        border-radius: theme('borderRadius.lg');
+        padding: theme('spacing.6');
+        box-shadow: theme('boxShadow.xl');
     }
 }

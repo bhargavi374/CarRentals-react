@@ -12,28 +12,26 @@ export default function Navbar() {
         { name: 'Home', href: '/' },
         { name: 'About', href: '/about' },
         { name: 'Models', href: '/model' },
-        { name: 'Testimonials', href: '/testimonials' }, 
+        { name: 'Testimonials', href: '/testimonials' },
         { name: 'Team', href: '/team' },
         { name: 'Contact', href: '/contact' },
-        { name: 'Login', href: '/login' },
-        { name: 'Register', href: '/register' }
     ];
 
     const toggleMenu = () => setIsToggle(!isToggle);
 
     return (
         <nav className="relative container mx-auto p-6 bg-transparent">
-            <div className="flex items-center justify-between space-x-20">
+            <div className="flex items-center justify-between">
                 {/* Logo */}
                 <div className="pt-2">
                     <Link to="/">
-                        <img style={{ cursor: "pointer" }} className="w-40 h-12" src={logo} alt="Car Logo" />
+                        <img className="w-40 h-12 cursor-pointer" src={logo} alt="Car Logo" />
                     </Link>
                 </div>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-6">
-                    {menus.slice(0, -2).map((menu, index) => (
+                    {menus.map((menu, index) => (
                         <Link
                             key={index}
                             to={menu.href}
@@ -44,7 +42,7 @@ export default function Navbar() {
                     ))}
                 </div>
 
-                {/* Login & Register Buttons (Desktop) */}
+                {/* Login & Register (Desktop) */}
                 <div className="hidden md:flex space-x-6">
                     <Link to="/login" className="font-bold text-lg font-sans py-3 px-4 hover:text-orange">
                         Login
@@ -54,12 +52,14 @@ export default function Navbar() {
                     </Link>
                 </div>
 
-                {/* Mobile Menu Button */}
-                <button onClick={toggleMenu} id="menu-btn" className={`block md:hidden focus:outline-none ${isToggle ? 'open' : ''}`}>
-                    <span className="hamburger-top"></span>
-                    <span className="hamburger-middle"></span>
-                    <span className="hamburger-bottom"></span>
-                </button>
+                {/* Hamburger Icon (Mobile) */}
+                <div className="md:hidden flex justify-end w-full">
+                    <button onClick={toggleMenu} className={`hamburger ${isToggle ? 'open' : ''}`}>
+                        <span className="hamburger-top"></span>
+                        <span className="hamburger-middle"></span>
+                        <span className="hamburger-bottom"></span>
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Menu */}
@@ -69,14 +69,15 @@ export default function Navbar() {
                         <Link
                             key={index}
                             to={menu.href}
-                            onClick={() => setIsToggle(false)} // Close menu on click
+                            onClick={() => setIsToggle(false)}
                         >
                             {menu.name}
                         </Link>
                     ))}
+                    <Link to="/login" className="hover:text-orange">Login</Link>
+                    <Link to="/register" className="hover:text-orange">Register</Link>
                 </div>
             )}
         </nav>
     );
 }
-   

@@ -11,67 +11,37 @@ export default function Dropdown() {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
-    const options = [{ name: 'Bookings', href: "/account/bookings" }];
-
     useEffect(() => {
-        function handleClickOutside(event) {
+        const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setIsOpen(false);
             }
-        }
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
         };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
     const toggleDropdown = () => setIsOpen(!isOpen);
 
     const handleLogout = async () => {
-        try {
-            await axios.post('/logout');
-            setUser(null);
-            navigate('/');
-        } catch (error) {
-            console.error("Logout failed:", error);
-        }
+        await axios.post('/logout');
+        setUser(null);
+        navigate('/');
     };
 
     return (
         <div className="relative inline-block text-left" ref={dropdownRef}>
-            <div>
-                <p
-                    onClick={toggleDropdown}
-                    className="inline-flex rounded-full justify-center w-7 h-7 mt-2 cursor-pointer"
-                    aria-expanded={isOpen}
-                    aria-haspopup="true"
-                >
-                    <AccountCircleOutlinedIcon className="hover:text-orange" style={{ cursor: "pointer" }} />
-                </p>
-            </div>
+            <p onClick={toggleDropdown} className="inline-flex rounded-full justify-center w-7 h-7 mt-2 cursor-pointer">
+                <AccountCircleOutlinedIcon className="hover:text-orange" />
+            </p>
 
             {isOpen && (
-                <div
-                    className="origin-top absolute left-1/2 transform -translate-x-1/2 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
-                    role="menu"
-                >
-                    <div className="py-1 text-center" role="none">
-                        {options.map((option, index) => (
-                            <Link
-                                key={index}
-                                to={option.href}
-                                className="block px-4 py-2 text-base font-semibold text-gray-700 hover:bg-cyan-200 hover:text-gray-900 cursor-pointer"
-                                role="menuitem"
-                                onMouseDown={() => setIsOpen(false)} // Close dropdown on click
-                            >
-                                {option.name}
-                            </Link>
-                        ))}
-                        <p
-                            onClick={handleLogout}
-                            className="block px-4 py-2 text-base font-semibold text-gray-700 hover:bg-cyan-200 hover:text-gray-900 cursor-pointer"
-                            role="menuitem"
-                        >
+                <div className="origin-top absolute left-1/2 transform -translate-x-1/2 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                    <div className="py-1 text-center">
+                        <Link to="/account/bookings" className="block px-4 py-2 text-base font-semibold text-gray-700 hover:bg-cyan-200">
+                            Bookings
+                        </Link>
+                        <p onClick={handleLogout} className="block px-4 py-2 text-base font-semibold text-gray-700 hover:bg-cyan-200 cursor-pointer">
                             Logout
                         </p>
                     </div>
