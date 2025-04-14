@@ -48,13 +48,21 @@ export default function Accountbar() {
                     <Dropdown />
                 </div>
 
-                <div className="md:hidden flex justify-end w-full">
+                {/* <div className="md:hidden flex justify-end w-full">
+                    <button onClick={open} className={`hamburger ${isToggle ? 'open' : ''}`}>
+                        <span className="hamburger-top"></span>
+                        <span className="hamburger-middle"></span>
+                        <span className="hamburger-bottom"></span>
+                    </button>
+                </div> */}
+                <div className="md:hidden">
                     <button onClick={open} className={`hamburger ${isToggle ? 'open' : ''}`}>
                         <span className="hamburger-top"></span>
                         <span className="hamburger-middle"></span>
                         <span className="hamburger-bottom"></span>
                     </button>
                 </div>
+
             </div>
 
             {isToggle && (
