@@ -52,13 +52,12 @@
     background-repeat: no-repeat; 
     background-position: center center;
 }
-/* .red-car {
+.red-car {
     background-image: url("./Components/images/background.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-} */
-
+}
 #carmodels{
     transition: all .2s;
 }
