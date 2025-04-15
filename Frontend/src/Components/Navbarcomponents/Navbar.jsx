@@ -53,20 +53,20 @@ export default function Navbar() {
                 </div>
 
                 {/* Hamburger Icon (Mobile) */}
-                {/* <div className="md:hidden flex justify-end w-full">
+             <div className="md:hidden flex justify-end w-full">
                     <button onClick={toggleMenu} className={`hamburger ${isToggle ? 'open' : ''}`}>
                         <span className="hamburger-top"></span>
                         <span className="hamburger-middle"></span>
                         <span className="hamburger-bottom"></span>
                     </button>
-                </div> */}{/* Hamburger Icon (Mobile) */}
-                <div className="md:hidden">
+                </div> {/* Hamburger Icon (Mobile) */}
+                {/* <div className="md:hidden">
                     <button onClick={toggleMenu} className={`hamburger ${isToggle ? 'open' : ''}`}>
                         <span className="hamburger-top"></span>
                         <span className="hamburger-middle"></span>
                         <span className="hamburger-bottom"></span>
                     </button>
-                </div>
+                </div> */}
             </div>
 
             {/* Mobile Menu */}
