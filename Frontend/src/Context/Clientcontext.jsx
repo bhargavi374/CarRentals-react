@@ -8,7 +8,7 @@ export function UserContextProvider({ children }) {
     const [ready, setReady] = useState(false);
 
     useEffect(() => {
-        axios.get('/api/verify', {
+        axios.get('/verify', {
             withCredentials: true
         })
         .then(({ data }) => {

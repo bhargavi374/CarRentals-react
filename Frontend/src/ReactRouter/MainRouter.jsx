@@ -16,7 +16,9 @@ import Booking from '../pages/bookinghistory';
 
 
 
-axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
+axios.create({
+  baseURL: import.meta.env.VITE_BASE_URL
+})
 axios.defaults.withCredentials = true;
 
 

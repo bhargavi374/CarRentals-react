@@ -89,7 +89,7 @@ export default function Bookcar({
 
     try {
       const { data } = await axios.post(
-        "/api/reservation",
+        "/reservation",
         {
           carType,
           pickPlace,

@@ -24,7 +24,7 @@ export default function Accountbar() {
 
   const handleLogout = useCallback(async () => {
     try {
-      await axios.post("/api/logout");
+      await axios.post("/logout");
       setUser(null);
       navigate("/");
     } catch (error) {
