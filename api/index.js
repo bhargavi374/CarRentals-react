@@ -207,7 +207,12 @@ app.post("/api/cancel", async (req, res) => {
 });
 
 app.post("/api/logout", (req, res) => {
-  res.clearCookie("token");
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+  });
+
   res.json(true);
 });
 

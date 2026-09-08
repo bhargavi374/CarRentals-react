@@ -23,12 +23,18 @@ export default function Dropdown() {
 
     const toggleDropdown = () => setIsOpen(!isOpen);
 
-    const handleLogout = async () => {
-        await axios.post('api/logout');
-        setUser(null);
-        navigate('/');
-    };
+   const handleLogout = useCallback(async () => {
+    try {
+        await axios.post("/logout", {}, {
+            withCredentials: true,
+        });
 
+        setUser(null);
+        navigate("/");
+    } catch (error) {
+        console.error("Logout failed:", error);
+    }
+}, [setUser, navigate]);
     return (
         <div className="relative inline-block text-left" ref={dropdownRef}>
             <p onClick={toggleDropdown} className="inline-flex rounded-full justify-center w-7 h-7 mt-2 cursor-pointer">
