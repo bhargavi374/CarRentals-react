@@ -85,25 +85,46 @@ app.post('/api/login', async (req, res) => {
     }
 })
 
+app.get('/api/verify', async (req, res) => {
 
-app.get('/api/verify', (req, res) => {
     const { token } = req.cookies;
 
-    if (token) {
-        jwt.verify(token, jwtSecret, {}, async (err, clientData) => {
-            if (err) throw err;
-            const client = await Client.findById(clientData.id);
-            if (!client) {
-                res.json({ message: "no user" })
-            } else {
-                const { username, _id, password } = client;
-                res.json({ username, _id, password })
-            }
-        })
-    } else {
-        res.json(null)
+    if (!token) {
+        return res.json(null);
     }
-})
+
+    jwt.verify(token, jwtSecret, async (err, clientData) => {
+
+        if (err) {
+            return res.json(null);
+        }
+
+        try {
+
+            const client = await Client.findById(clientData.id);
+
+            if (!client) {
+                return res.json(null);
+            }
+
+            const { username, _id } = client;
+
+            return res.json({
+                username,
+                _id
+            });
+
+        } catch (error) {
+
+            console.log(error);
+            return res.status(500).json({
+                message: "Server error"
+            });
+
+        }
+
+    });
+});
 
 app.post('/api/reservation', authenticateJWT, async (req, res) => {
     const { carType, pickPlace, dropPlace, pickDate, dropDate, pickTime, dropTime, firstname, lastname, age, phone, email, address, city, zipcode } = req.body;
@@ -165,8 +186,9 @@ app.post('/api/cancel', async (req, res) => {
 })
 
 app.post('/api/logout', (req, res) => {
-    res.cookie('token', '').json(true);
-})
+    res.clearCookie('token');
+    res.json(true);
+});
 
 app.listen(Port, () => {
     console.log("app started...")

@@ -1,17 +1,14 @@
-import React from 'react';
-import { Routes,Route } from 'react-router-dom';
-import './App.css'
-import MainRouter from './ReactRouter.jsx/MainRouter';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import MainRouter from "./ReactRouter/MainRouter";
 
 function App() {
-
-
   return (
     <>
-      <MainRouter/>
-
+      <MainRouter />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -36,7 +36,7 @@ export default function Booking(){
 
 
     useEffect(()=>{
-        axios.get('/bookings').then((response)=>{
+        axios.get('/api/bookings').then((response)=>{
             //console.log(response.data)
             setBookings(response.data)
         })
@@ -53,7 +53,7 @@ export default function Booking(){
 
     
     const handleCancelBooking = (bookingId) => {
-        axios.post('/cancel',{bookingId}).then((response) => {
+        axios.post('/api/cancel',{bookingId}).then((response) => {
           console.log('Booking canceled:', response.data);
           window.location.reload();
         });

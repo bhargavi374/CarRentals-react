@@ -78,7 +78,7 @@ const RegistrationForm = () => {
   const Submit = async () => {
 
     try{if(passwordResult && password === confirmPassword){
-        const res = await axios.post('/register',{username,password})
+        const res = await axios.post('/api/register',{username,password})
         if(res.data.username === username){
             alert("Registration successfull please login")
             navigate('/login')

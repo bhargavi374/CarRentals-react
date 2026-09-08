@@ -3,21 +3,28 @@ import axios from "axios";
 
 export const UserContext = createContext({});
 
-export function UserContextProvider({children}){
-    const [user,setUser] = useState(null);
-    const [ready,setReady] = useState(false);
-    useEffect(() =>{
-        if(!user){
-            axios.get('/verify').then(({data})=>{
-                //console.log(data)
-                setUser(data);
-                setReady(true);
-            })
-        }
+export function UserContextProvider({ children }) {
+    const [user, setUser] = useState(null);
+    const [ready, setReady] = useState(false);
 
-    },[]);
-    return(
-        <UserContext.Provider value={{user,setUser,ready}}>
+    useEffect(() => {
+        axios.get('/api/verify', {
+            withCredentials: true
+        })
+        .then(({ data }) => {
+            console.log("Verified user:", data);
+            setUser(data);
+            setReady(true);
+        })
+        .catch((error) => {
+            console.log("Verify error:", error);
+            setUser(null);
+            setReady(true);
+        });
+    }, []);
+
+    return (
+        <UserContext.Provider value={{ user, setUser, ready }}>
             {children}
         </UserContext.Provider>
     );

@@ -24,7 +24,7 @@ export default function Dropdown() {
     const toggleDropdown = () => setIsOpen(!isOpen);
 
     const handleLogout = async () => {
-        await axios.post('/logout');
+        await axios.post('api/logout');
         setUser(null);
         navigate('/');
     };

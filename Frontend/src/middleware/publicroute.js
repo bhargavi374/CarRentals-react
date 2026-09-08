@@ -1,15 +1,16 @@
-import { useContext , useEffect} from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../Context/Clientcontext";
 import { useNavigate } from "react-router-dom";
 
-
-
-export default function Publicroute(){
-    const {user} = useContext(UserContext);
+export default function Publicroute() {
+    const { user, ready } = useContext(UserContext);
     const navigate = useNavigate();
+
     useEffect(() => {
-        if (user) {
-            navigate('/account');
+        if (ready && user) {
+            navigate("/account", { replace: true });
         }
-    }, [user, navigate]);
+    }, [ready, user, navigate]);
+
+    return null;
 }

@@ -9,7 +9,7 @@ import CarCard from './Reactcard';
 
 
 
-export default function Carmodel(){
+export default function Carmodel({ handleBookRideClick }){
 
     const cars = [
         {
@@ -57,7 +57,7 @@ export default function Carmodel(){
                 <div className="grid lg:grid-cols-3 gap-8 px-16">
                     {cars.map((car,index)=>(
                         <div key={index} className="">
-                            <CarCard image={car.image} name={car.name} model={car.model} rent={car.rent} />
+                            <CarCard image={car.image} name={car.name} model={car.model} rent={car.rent} handleBookRideClick={handleBookRideClick} />
                         </div>
                     ))}
                 </div>
