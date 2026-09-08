@@ -20,10 +20,17 @@ const authenticateJWT = require("./middleware/authenticateJWT");
 app.use(express.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(cors({
+//     origin: "http://localhost:5173",
+//     credentials: true,
+// }))
 app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-}))
+  origin: [
+    "http://localhost:5173",
+    "https://splendorous-genie-1ada6b.netlify.app"
+  ],
+  credentials: true,
+}));
 
 app.use(cookieParser());
 
@@ -190,7 +197,10 @@ app.post('/api/logout', (req, res) => {
     res.json(true);
 });
 
-app.listen(Port, () => {
-    console.log("app started...")
-})
+// app.listen(Port, () => {
+//     console.log("app started...")
+// })
 
+app.listen(Port, '0.0.0.0', () => {
+  console.log(`app started on port ${Port}`);
+});
